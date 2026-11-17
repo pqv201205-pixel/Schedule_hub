@@ -1,0 +1,9 @@
+Options -Indexes
+<FilesMatch "^(\.env|\.env\.example|composer\.(json|lock)|README\.md|LICENSE)$">
+  Require all denied
+</FilesMatch>
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^(app|config|database|scripts|tests|vendor|\.github)(/|$) - [F,L,NC]
+</IfModule>
+DirectoryIndex index.php
